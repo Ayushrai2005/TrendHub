@@ -1,15 +1,18 @@
 package com.example.trendhub
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 class ProductAdapter(
 
-    private val listOfProducts : List<Product>
+    private val listOfProducts : List<Product> ,
+    private val context: Context
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>(){
     class ProductViewHolder(
         itemView: View
@@ -37,6 +40,9 @@ class ProductAdapter(
         holder.productPrice.text= currentProduct.productPrice
         holder.productDesc.text = currentProduct.productDescription
         //Glide
+        Glide.with(context)
+            .load(currentProduct.productImage)
+            .into(holder.productImg)
 
 
     }

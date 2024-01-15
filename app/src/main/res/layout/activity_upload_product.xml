@@ -20,28 +20,30 @@
         android:layout_marginTop="20dp"/>
 
 
-
     <EditText
         android:id="@+id/edt_productname"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:hint="Product Name"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="12dp"
-        android:layout_gravity="center_horizontal"/>
+        android:hint="Product Name"
+        android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/edt_productprice"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:hint="Product Price"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:hint="@string/product_price"
+        android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/edt_productDes"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:hint="Product Description"
-        android:layout_gravity="center_horizontal"/>
+        android:minHeight="48dp" />
 
     <Button
         android:id="@+id/btn_selectproduct"

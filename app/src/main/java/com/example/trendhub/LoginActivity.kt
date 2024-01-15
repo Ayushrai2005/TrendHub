@@ -47,26 +47,25 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun login(email : String , password : String) {
+     fun login(email : String , password : String) {
         auth.signInWithEmailAndPassword(email , password)
         .addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {
                 //open upload Product Screen
+                Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
                     startActivity(
                         Intent(this , uploadProductActivity::class.java)
                     )
 
             } else {
                 // If sign in fails, display a message to the user.
-                Toast.makeText(
-                    baseContext, "Authentication failed.",
-                    Toast.LENGTH_SHORT
-                )
+                Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show()
+
             }
         }
     }
 
-    private fun signup(email : String ,password :String){
+     fun signup(email : String ,password :String){
         auth.createUserWithEmailAndPassword(email , password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -76,10 +75,8 @@ class LoginActivity : AppCompatActivity() {
 
                 } else {
                     // If sign in fails, display a message to the user.
-                    Toast.makeText(
-                        baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT
-                    )
+                    Toast.makeText(this, "SignUp Failed", Toast.LENGTH_SHORT).show()
+
                 }
             }
 

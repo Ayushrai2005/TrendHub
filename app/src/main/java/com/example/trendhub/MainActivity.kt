@@ -6,6 +6,10 @@ import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,34 +26,27 @@ class MainActivity : AppCompatActivity() {
         rv = findViewById(R.id.rv)
         fab = findViewById(R.id.fab)
 
-        val p1 = Product(
-            productName = "Acer Nitro v",
-            productPrice = "74440",
-            productDescription = "This is high end gaming laptop",
-            productImage = ""
-        )
-        val p2 = Product(
-            productName = "Acer Predator",
-            productPrice = "114000",
-            productDescription = "This is super high end gaming laptop",
-            productImage = ""
-        )
-        val p3 = Product(
-            productName = "Acer Aspire",
-            productPrice = "40000",
-            productDescription = "This is mid end laptop",
-            productImage = ""
-        )
+        FirebaseDatabase.getInstance().getReference("Products")
+            .addValueEventListener(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    listOfProduct.clear()
+                    for(dataSnapShot in snapshot.children){
+                        val product = dataSnapShot.getValue(Product::class.java)
+                        listOfProduct.add(product!!)
+                    }
+                    productAdapter = ProductAdapter(listOfProduct, this@MainActivity)
+                    rv.adapter=productAdapter
+                    rv.layoutManager= GridLayoutManager(this@MainActivity,2)
+                }
 
-        listOfProduct.add(p1)
-        listOfProduct.add(p2)
-        listOfProduct.add(p3)
-        listOfProduct.add(p3)
+                override fun onCancelled(p0: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+
+            })
 
 
-        productAdapter = ProductAdapter(listOfProduct)
-        rv.adapter=productAdapter
-        rv.layoutManager= GridLayoutManager(this,2)
+
 
         fab.setOnClickListener {
             startActivity(
