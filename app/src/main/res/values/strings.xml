@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TrendHub</string>
     <string name="product_price">Product Price</string>
+    <string name="title_activity_about">AboutActivity</string>
 </resources>

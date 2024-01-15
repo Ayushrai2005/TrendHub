@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".about">
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#F3F3F3">
+
+        <!-- Profile Picture -->
+        <ImageView
+            android:id="@+id/profilePicture"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_foreground"
+            android:background="@color/purple_500" />
+
+        <!-- Spacer -->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <!-- Name -->
+        <TextView
+            android:id="@+id/authorName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ayush Rai"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/purple_700" />
+
+        <!-- Phone -->
+        <TextView
+            android:id="@+id/authorPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Phone: +91 6264450423"
+            android:textColor="@color/teal_700" />
+
+        <!-- Email -->
+        <TextView
+            android:id="@+id/authorEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email: shweetarai@gmail.com"
+            android:textColor="@color/teal_700" />
+
+        <!-- Location -->
+        <TextView
+            android:id="@+id/authorLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Location: Bilaspur , Chhattisgarh"
+            android:textColor="@color/teal_700" />
+
+        <!-- Spacer -->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="45dp" />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="For Feedback Click Below ! " />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+        <Button
+            android:id="@+id/visitFeedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center_horizontal"
+            android:text="Feadback"
+            android:textColor="#FFFFFF"
+            android:background="@color/purple_700" />
+    </LinearLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
